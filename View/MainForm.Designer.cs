@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.generateTabPage = new System.Windows.Forms.TabPage();
             this.favoriteWordAddButton = new System.Windows.Forms.Button();
@@ -328,6 +329,7 @@
             this.Controls.Add(this.categoryCaptionLabel);
             this.Controls.Add(this.categoryComboBox);
             this.Controls.Add(this.mainTabControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Power Word Generator";
             this.mainTabControl.ResumeLayout(false);

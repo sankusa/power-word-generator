@@ -9,7 +9,7 @@ using System.Runtime.Serialization;
 using System.IO;
 using PowerWordGenerator.Model;
 
-namespace PowerWordGenerator.Infrastructure
+namespace PowerWordGenerator.DataAccess
 {
     class DataContractWordDataContainerListRepository : IWordDataContainerListRepository
     {
@@ -19,12 +19,12 @@ namespace PowerWordGenerator.Infrastructure
             _fileName = fileName;
         }
 
-        public WordDataContainerList Load()
+        public T Load<T>() where T : IWordDataContainerList
         {
-            return DataContractSaveUtil.Load<WordDataContainerList>(_fileName);
+            return DataContractSaveUtil.Load<T>(_fileName);
         }
 
-        public void Save(WordDataContainerList wordDataContainers)
+        public void Save(IWordDataContainerList wordDataContainers)
         {
             DataContractSaveUtil.Save(_fileName, wordDataContainers);
         }

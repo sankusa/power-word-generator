@@ -8,7 +8,7 @@ namespace PowerWordGenerator
 {
     public static class Const
     {
-        public const string FILE_NAME_SAVE = @"SaveData.txt";
+        public const string FILE_NAME_SAVE = @"SaveData.xml";
         public const string CATEGORY_NAME_DEFAULT = "パワーワード";
     }
 }

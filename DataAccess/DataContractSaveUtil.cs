@@ -8,7 +8,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
-namespace PowerWordGenerator.Infrastructure
+namespace PowerWordGenerator.DataAccess
 {
     public class DataContractSaveUtil
     {
@@ -25,11 +25,11 @@ namespace PowerWordGenerator.Infrastructure
             return obj;
         }
 
-        public static void Save<T>(string fileName, T obj)
+        public static void Save(string fileName, object obj)
         {
             string fileNameTmp = fileName + FILENAME_SUFFIX_TMP;
 
-            DataContractSerializer serializer = new DataContractSerializer(typeof(T));
+            DataContractSerializer serializer = new DataContractSerializer(obj.GetType());
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Encoding = Encoding.GetEncoding("Shift_JIS");
             XmlWriter xw = XmlWriter.Create(fileNameTmp, settings);

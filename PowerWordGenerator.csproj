@@ -67,7 +67,7 @@
     <Compile Include="Model\IWordDataContainerList.cs" />
     <Compile Include="Model\WordDataContainerList.cs" />
     <Compile Include="Model\IWordDataContainerListRepository.cs" />
-    <Compile Include="Infrastructure\DataContractWordDataContainerListRepository.cs" />
+    <Compile Include="DataAccess\DataContractWordDataContainerListRepository.cs" />
     <Compile Include="View\TextInputDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,7 +75,7 @@
       <DependentUpon>TextInputDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\WordDataContainer.cs" />
-    <Compile Include="Infrastructure\DataContractSaveUtil.cs" />
+    <Compile Include="DataAccess\DataContractSaveUtil.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

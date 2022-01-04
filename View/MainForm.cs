@@ -97,6 +97,7 @@ namespace PowerWordGenerator.View
                     }
 
                     _mainViewModel.AddCategory(input);
+                    _mainViewModel.Save();
                 }
             }
         }
@@ -112,6 +113,7 @@ namespace PowerWordGenerator.View
             if(MessageBox.Show(this, "カテゴリを削除しますか？", "確認", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 _mainViewModel.RemoveCategory((string)categoryComboBox.SelectedItem);
+                _mainViewModel.Save();
             }
         }
 
@@ -156,6 +158,7 @@ namespace PowerWordGenerator.View
             }
 
             _mainViewModel.AddMaterialWord(addWord);
+            _mainViewModel.Save();
             materialWordAddTextBox.Text = "";
         }
 
@@ -170,6 +173,7 @@ namespace PowerWordGenerator.View
             string deleteWord = (string)materialWordListBox.SelectedItem;
 
             _mainViewModel.RemoveMaterialWord(deleteWord);
+            _mainViewModel.Save();
         }
 
         private void favoriteWordAddButton_Click(object sender, EventArgs e)
@@ -189,6 +193,7 @@ namespace PowerWordGenerator.View
             }
 
             _mainViewModel.AddFavoriteWord(addWord);
+            _mainViewModel.Save();
             resultTextBox.Text = "";
         }
 
@@ -203,6 +208,7 @@ namespace PowerWordGenerator.View
             string deleteWord = (string)favoriteWordListBox.SelectedItem;
 
             _mainViewModel.RemoveFavoriteWord(deleteWord);
+            _mainViewModel.Save();
         }
 
         private void materialWordListBox_SelectedIndexChanged(object sender, EventArgs e)

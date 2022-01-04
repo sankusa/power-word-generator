@@ -10,6 +10,7 @@ namespace PowerWordGenerator.ViewModel
     public class MainViewModel
     {
         private IWordDataContainerList _wordDataContainers;
+        private IWordDataContainerListRepository _wordDataContainerListRepository;
 
         private string _activeCategoryName;
         public string ActiveCategoryName
@@ -34,10 +35,12 @@ namespace PowerWordGenerator.ViewModel
         public event Action OnCategorizedContentChanged;
 
 
-        public MainViewModel(IWordDataContainerList wordDataContainers)
+        public MainViewModel(IWordDataContainerList wordDataContainers, IWordDataContainerListRepository wordDataContainerListRepository)
         {
             _wordDataContainers = wordDataContainers;
             _activeCategoryName = wordDataContainers.WordDataContainers[0].CategoryName;
+
+            _wordDataContainerListRepository = wordDataContainerListRepository;
         }
 
         public IReadOnlyList<string> CategoryNames => _wordDataContainers.WordDataContainers.Select(x => x.CategoryName).ToList();
@@ -107,6 +110,11 @@ namespace PowerWordGenerator.ViewModel
                 result += ActiveWordDataContainer.GetRandomMaterialWord();
             }
             return result;
+        }
+
+        public void Save()
+        {
+            _wordDataContainerListRepository.Save(_wordDataContainers);
         }
     }
 }

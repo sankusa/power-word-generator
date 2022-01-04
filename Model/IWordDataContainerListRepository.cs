@@ -8,8 +8,8 @@ namespace PowerWordGenerator.Model
 {
     public interface IWordDataContainerListRepository
     {
-        void Save(WordDataContainerList wordDataContainers);
-        WordDataContainerList Load();
+        void Save(IWordDataContainerList wordDataContainers);
+        T Load<T>() where T : IWordDataContainerList;
 
         bool DataExists();
     }

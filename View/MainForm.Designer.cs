@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.generateTabPage = new System.Windows.Forms.TabPage();
@@ -52,16 +51,10 @@
             this.categoryCaptionLabel = new System.Windows.Forms.Label();
             this.categoryAddButton = new System.Windows.Forms.Button();
             this.categoryDeleteButton = new System.Windows.Forms.Button();
-            this.iReadOnlyWordDataContainerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iReadOnlyWordDataContainerListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.wordDataContainerListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainTabControl.SuspendLayout();
             this.generateTabPage.SuspendLayout();
             this.materialWordTabPage.SuspendLayout();
             this.favoriteWordTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iReadOnlyWordDataContainerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iReadOnlyWordDataContainerListBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wordDataContainerListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -339,9 +332,6 @@
             this.materialWordTabPage.PerformLayout();
             this.favoriteWordTabPage.ResumeLayout(false);
             this.favoriteWordTabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iReadOnlyWordDataContainerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iReadOnlyWordDataContainerListBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.wordDataContainerListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,9 +359,6 @@
         private System.Windows.Forms.TabPage favoriteWordTabPage;
         private System.Windows.Forms.Button favoriteWordDeleteButton;
         private System.Windows.Forms.ListBox favoriteWordListBox;
-        private System.Windows.Forms.BindingSource iReadOnlyWordDataContainerBindingSource;
-        private System.Windows.Forms.BindingSource iReadOnlyWordDataContainerListBindingSource;
-        private System.Windows.Forms.BindingSource wordDataContainerListBindingSource;
         private System.Windows.Forms.TextBox favoriteWordCopyTextBox;
         private System.Windows.Forms.Button favoriteWordCopyButton;
     }

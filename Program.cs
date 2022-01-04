@@ -20,7 +20,7 @@ namespace PowerWordGenerator
         [STAThread]
         static void Main()
         {
-            WordDataContainerList _wordDataContainers;
+            IWordDataContainerList _wordDataContainers;
             DataContractWordDataContainerListRepository _wordDataContainerListRepository = new DataContractWordDataContainerListRepository(Const.FILE_NAME_SAVE);
 
             if (!_wordDataContainerListRepository.DataExists())
@@ -30,10 +30,10 @@ namespace PowerWordGenerator
                 _wordDataContainerListRepository.Save(_wordDataContainers);
             } else
             {
-                _wordDataContainers = _wordDataContainerListRepository.Load();
+                _wordDataContainers = _wordDataContainerListRepository.Load<WordDataContainerList>();
             }
 
-            MainViewModel _mainViewModel = new MainViewModel(_wordDataContainers);
+            MainViewModel _mainViewModel = new MainViewModel(_wordDataContainers, _wordDataContainerListRepository);
 
 
             Application.EnableVisualStyles();

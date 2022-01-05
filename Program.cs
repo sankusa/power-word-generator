@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using PowerWordGenerator.Model;
-using PowerWordGenerator.Infrastructure;
+using PowerWordGenerator.DataAccess;
 using PowerWordGenerator.ViewModel;
 using PowerWordGenerator.View;
 
@@ -20,7 +20,9 @@ namespace PowerWordGenerator
         [STAThread]
         static void Main()
         {
+            // インスタンス生成、依存性注入
             IWordDataContainerList _wordDataContainers;
+
             DataContractWordDataContainerListRepository _wordDataContainerListRepository = new DataContractWordDataContainerListRepository(Const.FILE_NAME_SAVE);
 
             if (!_wordDataContainerListRepository.DataExists())
@@ -35,12 +37,10 @@ namespace PowerWordGenerator
 
             MainViewModel _mainViewModel = new MainViewModel(_wordDataContainers, _wordDataContainerListRepository);
 
-
+            // フォームの表示
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm(_mainViewModel));
-
-            _wordDataContainerListRepository.Save(_wordDataContainers);
         }
     }
 }

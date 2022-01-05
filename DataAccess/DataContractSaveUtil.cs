@@ -10,14 +10,18 @@ using System.Runtime.Serialization;
 
 namespace PowerWordGenerator.DataAccess
 {
+    /// <summary>
+    /// インスタンスをDataContractSerializerでシリアライズし、ファイル書き出し・読み込みするクラス
+    /// インスタンス及びそのメンバはDataContact専用の属性を付与しないとシリアライズされないことに注意
+    /// </summary>
     public class DataContractSaveUtil
     {
-        private const string FILENAME_SUFFIX_TMP = "_TMP";
+        private const string FILEPATH_SUFFIX_TMP = "_TMP";
 
-        public static T Load<T>(string fileName)
+        public static T Load<T>(string filePath)
         {
             DataContractSerializer serializer = new DataContractSerializer(typeof(T));
-            XmlReader xr = XmlReader.Create(fileName);
+            XmlReader xr = XmlReader.Create(filePath);
 
             T obj = (T)serializer.ReadObject(xr);
             xr.Close();
@@ -25,24 +29,34 @@ namespace PowerWordGenerator.DataAccess
             return obj;
         }
 
-        public static void Save(string fileName, object obj)
+        public static void Save(string filePath, object obj)
         {
-            string fileNameTmp = fileName + FILENAME_SUFFIX_TMP;
+            string filePathTmp = filePath + FILEPATH_SUFFIX_TMP;
 
             DataContractSerializer serializer = new DataContractSerializer(obj.GetType());
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Encoding = Encoding.GetEncoding("Shift_JIS");
-            XmlWriter xw = XmlWriter.Create(fileNameTmp, settings);
+            XmlWriter xw = XmlWriter.Create(filePathTmp, settings);
 
             serializer.WriteObject(xw, obj);
             xw.Close();
 
             // ファイル置き換え
-            if (File.Exists(fileName))
+            if (File.Exists(filePath))
             {
-                File.Delete(fileName);
+                try
+                {
+                    File.Delete(filePath);
+
+                // 旧ファイルの削除に失敗した場合は一時ファイルを削除
+                } catch(IOException e)
+                {
+                    File.Delete(filePathTmp);
+                    throw;
+                }
+                
             }
-            File.Move(fileNameTmp, fileName);
+            File.Move(filePathTmp, filePath);
         }
     }
 }

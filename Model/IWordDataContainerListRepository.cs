@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace PowerWordGenerator.Model
 {
+    /// <summary>
+    /// IWordDataContainerListリポジトリインターフェース
+    /// </summary>
     public interface IWordDataContainerListRepository
     {
         void Save(IWordDataContainerList wordDataContainers);
+
         T Load<T>() where T : IWordDataContainerList;
 
         bool DataExists();

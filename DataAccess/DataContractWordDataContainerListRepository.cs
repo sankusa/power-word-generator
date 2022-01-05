@@ -11,6 +11,10 @@ using PowerWordGenerator.Model;
 
 namespace PowerWordGenerator.DataAccess
 {
+    /// <summary>
+    /// IWordDataContainerList用ファイル読み込み・書き出しクラス
+    /// インスタンス及びそのメンバはDataContact専用の属性を付与しないとシリアライズされないことに注意
+    /// </summary>
     class DataContractWordDataContainerListRepository : IWordDataContainerListRepository
     {
         private string _fileName;

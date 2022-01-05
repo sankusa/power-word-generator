@@ -7,6 +7,9 @@ using PowerWordGenerator.Model;
 
 namespace PowerWordGenerator.ViewModel
 {
+    /// <summary>
+    /// MainViewに表示用データとModelの操作メソッドを提供する
+    /// </summary>
     public class MainViewModel
     {
         private IWordDataContainerList _wordDataContainers;

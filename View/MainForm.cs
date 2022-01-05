@@ -51,7 +51,10 @@ namespace PowerWordGenerator.View
             RepaintCategorizedContents(false);
         }
 
-
+        /// <summary>
+        /// タブ内の再描画
+        /// </summary>
+        /// <param name="keepSelection">各種選択状態を保持するか</param>
         private void RepaintCategorizedContents(bool keepSelection)
         {
             int oldMaterialIndex = materialWordListBox.SelectedIndex;
@@ -97,7 +100,7 @@ namespace PowerWordGenerator.View
                     }
 
                     _mainViewModel.AddCategory(input);
-                    _mainViewModel.Save();
+                    TrySave();
                 }
             }
         }
@@ -113,7 +116,7 @@ namespace PowerWordGenerator.View
             if(MessageBox.Show(this, "カテゴリを削除しますか？", "確認", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 _mainViewModel.RemoveCategory((string)categoryComboBox.SelectedItem);
-                _mainViewModel.Save();
+                TrySave();
             }
         }
 
@@ -158,7 +161,7 @@ namespace PowerWordGenerator.View
             }
 
             _mainViewModel.AddMaterialWord(addWord);
-            _mainViewModel.Save();
+            TrySave();
             materialWordAddTextBox.Text = "";
         }
 
@@ -173,7 +176,7 @@ namespace PowerWordGenerator.View
             string deleteWord = (string)materialWordListBox.SelectedItem;
 
             _mainViewModel.RemoveMaterialWord(deleteWord);
-            _mainViewModel.Save();
+            TrySave();
         }
 
         private void favoriteWordAddButton_Click(object sender, EventArgs e)
@@ -193,7 +196,7 @@ namespace PowerWordGenerator.View
             }
 
             _mainViewModel.AddFavoriteWord(addWord);
-            _mainViewModel.Save();
+            TrySave();
             resultTextBox.Text = "";
         }
 
@@ -208,7 +211,7 @@ namespace PowerWordGenerator.View
             string deleteWord = (string)favoriteWordListBox.SelectedItem;
 
             _mainViewModel.RemoveFavoriteWord(deleteWord);
-            _mainViewModel.Save();
+            TrySave();
         }
 
         private void materialWordListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -250,6 +253,19 @@ namespace PowerWordGenerator.View
             {
                 favoriteWordCopyButton.Enabled = true;
             }
+        }
+
+        private bool TrySave()
+        {
+            try
+            {
+                _mainViewModel.Save();
+            } catch (System.IO.IOException e)
+            {
+                MessageBox.Show(this, e.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
         }
     }
 }

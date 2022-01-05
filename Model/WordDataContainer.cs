@@ -8,6 +8,9 @@ using System.Xml.Serialization;
 
 namespace PowerWordGenerator.Model
 {
+    /// <summary>
+    /// 単語情報コンテナクラス
+    /// </summary>
     [DataContract]
     public class WordDataContainer : IWordDataContainer
     {

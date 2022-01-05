@@ -6,17 +6,29 @@ using System.Threading.Tasks;
 
 namespace PowerWordGenerator.Model
 {
+    /// <summary>
+    /// 単語情報コンテナインターフェース
+    /// </summary>
     public interface IWordDataContainer
     {
         string CategoryName { get; }
+
         IReadOnlyList<string> MaterialWords { get; }
+
         IReadOnlyList<string> FavoriteWords { get; }
+
         string GetRandomMaterialWord();
+
         void AddMaterialWord(string word);
+
         void RemoveMaterialWord(string word);
+
         bool MaterialWordExists(string word);
+
         void AddFavoriteWord(string word);
+
         void RemoveFavoriteWord(string word);
+
         bool FavoriteWordExists(string word);
     }
 }

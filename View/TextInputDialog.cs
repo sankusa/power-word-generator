@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace PowerWordGenerator
 {
+    /// <summary>
+    /// テキスト入力ダイアログ
+    /// </summary>
     public partial class TextInputDialog : Form
     {
         private string _inputText = "";

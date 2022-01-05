@@ -44,7 +44,6 @@
             this.materialWordListBox = new System.Windows.Forms.ListBox();
             this.favoriteWordTabPage = new System.Windows.Forms.TabPage();
             this.favoriteWordCopyButton = new System.Windows.Forms.Button();
-            this.favoriteWordCopyTextBox = new System.Windows.Forms.TextBox();
             this.favoriteWordDeleteButton = new System.Windows.Forms.Button();
             this.favoriteWordListBox = new System.Windows.Forms.ListBox();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
@@ -210,7 +209,6 @@
             // favoriteWordTabPage
             // 
             this.favoriteWordTabPage.Controls.Add(this.favoriteWordCopyButton);
-            this.favoriteWordTabPage.Controls.Add(this.favoriteWordCopyTextBox);
             this.favoriteWordTabPage.Controls.Add(this.favoriteWordDeleteButton);
             this.favoriteWordTabPage.Controls.Add(this.favoriteWordListBox);
             this.favoriteWordTabPage.Location = new System.Drawing.Point(4, 22);
@@ -225,24 +223,13 @@
             // 
             this.favoriteWordCopyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.favoriteWordCopyButton.Enabled = false;
-            this.favoriteWordCopyButton.Location = new System.Drawing.Point(425, 4);
+            this.favoriteWordCopyButton.Location = new System.Drawing.Point(344, 245);
             this.favoriteWordCopyButton.Name = "favoriteWordCopyButton";
             this.favoriteWordCopyButton.Size = new System.Drawing.Size(75, 23);
             this.favoriteWordCopyButton.TabIndex = 5;
             this.favoriteWordCopyButton.Text = "コピー";
             this.favoriteWordCopyButton.UseVisualStyleBackColor = true;
             this.favoriteWordCopyButton.Click += new System.EventHandler(this.favoriteWordCopyButton_Click);
-            // 
-            // favoriteWordCopyTextBox
-            // 
-            this.favoriteWordCopyTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.favoriteWordCopyTextBox.Location = new System.Drawing.Point(6, 6);
-            this.favoriteWordCopyTextBox.Name = "favoriteWordCopyTextBox";
-            this.favoriteWordCopyTextBox.ReadOnly = true;
-            this.favoriteWordCopyTextBox.Size = new System.Drawing.Size(413, 19);
-            this.favoriteWordCopyTextBox.TabIndex = 9;
-            this.favoriteWordCopyTextBox.TextChanged += new System.EventHandler(this.favoriteWordCopyTextBox_TextChanged);
             // 
             // favoriteWordDeleteButton
             // 
@@ -263,9 +250,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.favoriteWordListBox.FormattingEnabled = true;
             this.favoriteWordListBox.ItemHeight = 12;
-            this.favoriteWordListBox.Location = new System.Drawing.Point(7, 31);
+            this.favoriteWordListBox.Location = new System.Drawing.Point(7, 7);
             this.favoriteWordListBox.Name = "favoriteWordListBox";
-            this.favoriteWordListBox.Size = new System.Drawing.Size(493, 208);
+            this.favoriteWordListBox.Size = new System.Drawing.Size(493, 232);
             this.favoriteWordListBox.TabIndex = 0;
             this.favoriteWordListBox.SelectedIndexChanged += new System.EventHandler(this.favoriteWordListBox_SelectedIndexChanged);
             // 
@@ -297,7 +284,7 @@
             this.categoryAddButton.Name = "categoryAddButton";
             this.categoryAddButton.Size = new System.Drawing.Size(75, 23);
             this.categoryAddButton.TabIndex = 3;
-            this.categoryAddButton.Text = "追加";
+            this.categoryAddButton.Text = "新規作成";
             this.categoryAddButton.UseVisualStyleBackColor = true;
             this.categoryAddButton.Click += new System.EventHandler(this.categoryAddButton_Click);
             // 
@@ -331,7 +318,6 @@
             this.materialWordTabPage.ResumeLayout(false);
             this.materialWordTabPage.PerformLayout();
             this.favoriteWordTabPage.ResumeLayout(false);
-            this.favoriteWordTabPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,7 +345,6 @@
         private System.Windows.Forms.TabPage favoriteWordTabPage;
         private System.Windows.Forms.Button favoriteWordDeleteButton;
         private System.Windows.Forms.ListBox favoriteWordListBox;
-        private System.Windows.Forms.TextBox favoriteWordCopyTextBox;
         private System.Windows.Forms.Button favoriteWordCopyButton;
     }
 }

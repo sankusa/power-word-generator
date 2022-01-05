@@ -46,7 +46,6 @@ namespace PowerWordGenerator.View
             }
 
             materialWordAddTextBox.Text = "";
-            favoriteWordCopyTextBox.Text = "";
 
             RepaintCategorizedContents(false);
         }
@@ -230,18 +229,18 @@ namespace PowerWordGenerator.View
             if (((ListBox)sender).SelectedIndex == -1)
             {
                 favoriteWordDeleteButton.Enabled = false;
-                favoriteWordCopyTextBox.Text = "";
+                favoriteWordCopyButton.Enabled = false;
             }
             else
             {
                 favoriteWordDeleteButton.Enabled = true;
-                favoriteWordCopyTextBox.Text = (string)(((ListBox)sender).SelectedItem);
+                favoriteWordCopyButton.Enabled = true;
             }
         }
 
         private void favoriteWordCopyButton_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(favoriteWordCopyTextBox.Text);
+            Clipboard.SetText((string)favoriteWordListBox.SelectedItem);
         }
 
         private void favoriteWordCopyTextBox_TextChanged(object sender, EventArgs e)

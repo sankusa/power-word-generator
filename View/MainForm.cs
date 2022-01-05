@@ -14,6 +14,8 @@ namespace PowerWordGenerator.View
 {
     public partial class MainForm : System.Windows.Forms.Form
     {
+        private const int MATERIAL_WORD_USE_COUNT_MAX = 10000;
+
         private MainViewModel _mainViewModel;
 
         public MainForm(MainViewModel mainViewModel)
@@ -86,7 +88,7 @@ namespace PowerWordGenerator.View
 
         private void categoryAddButton_Click(object sender, EventArgs e)
         {
-            using (TextInputDialog dialog = new TextInputDialog("カテゴリ追加"))
+            using (TextInputDialog dialog = new TextInputDialog("カテゴリ新規作成"))
             {
                 if(dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -126,8 +128,11 @@ namespace PowerWordGenerator.View
             if (!success || ret < 1)
             {
                 ((TextBox)sender).Text = 1.ToString();
-                //e.Cancel = true;
-                //MessageBox.Show(this, "1以上の整数を入力してください。", "入力値エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(this, "1以上の整数を入力してください。", "入力値エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } else if(ret > MATERIAL_WORD_USE_COUNT_MAX)
+            {
+                ((TextBox)sender).Text = MATERIAL_WORD_USE_COUNT_MAX.ToString();
+                MessageBox.Show(this, "使用単語数の上限は" + MATERIAL_WORD_USE_COUNT_MAX + "です。", "入力値エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -139,8 +144,14 @@ namespace PowerWordGenerator.View
                 return;
             }
 
+            string result = _mainViewModel.GenerateWord(int.Parse(materialWordCountTextBox.Text));
 
-            resultTextBox.Text = _mainViewModel.GenerateWord(int.Parse(materialWordCountTextBox.Text));
+            if(result.Length > resultTextBox.MaxLength)
+            {
+                MessageBox.Show(this, "生成結果の文字数が表示可能上限数" + resultTextBox.MaxLength + "を超過しました。", "入力値エラー", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            resultTextBox.Text = result;
         }
 
         private void materialWordAddButton_Click(object sender, EventArgs e)

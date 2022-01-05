@@ -1,8 +1,16 @@
 # PowerPordGenerator
-## 概要
 事前に登録した単語をランダムに組み合わせて新たなパワーワードを生成することができるWindowsフォームアプリです。
 
-## 使い方
+## 動作環境
+実行環境に以下のソフトウェアがインストールされている必要があります。  
+・.NET Framework 4.7.2以降
+
+## 利用手順
+1.Rereaseより「PowerWordGenerator.zip」をダウンロードする。  
+2.zipファイルを解凍し、中身の「PowerWordGenerator」フォルダを任意の場所に配置する。  
+3.「PowerWordGenerator.exe」を実行する。
+
+## 操作方法
 ### カテゴリ欄
 登録した単語、お気に入りの単語は全てカテゴリに紐づけられます。
 

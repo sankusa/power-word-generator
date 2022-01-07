@@ -229,9 +229,11 @@ namespace PowerWordGenerator.View
             if(((ListBox) sender).SelectedIndex == -1)
             {
                 materialWordDeleteButton.Enabled = false;
+                materialWordCopyButton.Enabled = false;
             } else
             {
                 materialWordDeleteButton.Enabled = true;
+                materialWordCopyButton.Enabled = true;
             }
         }
 
@@ -254,15 +256,9 @@ namespace PowerWordGenerator.View
             Clipboard.SetText((string)favoriteWordListBox.SelectedItem);
         }
 
-        private void favoriteWordCopyTextBox_TextChanged(object sender, EventArgs e)
+        private void materialWordCopyButton_Click(object sender, EventArgs e)
         {
-            if(((TextBox) sender).Text == "")
-            {
-                favoriteWordCopyButton.Enabled = false;
-            } else
-            {
-                favoriteWordCopyButton.Enabled = true;
-            }
+            Clipboard.SetText((string)materialWordListBox.SelectedItem);
         }
 
         private bool TrySave()

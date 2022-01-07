@@ -50,6 +50,7 @@
             this.categoryCaptionLabel = new System.Windows.Forms.Label();
             this.categoryAddButton = new System.Windows.Forms.Button();
             this.categoryDeleteButton = new System.Windows.Forms.Button();
+            this.materialWordCopyButton = new System.Windows.Forms.Button();
             this.mainTabControl.SuspendLayout();
             this.generateTabPage.SuspendLayout();
             this.materialWordTabPage.SuspendLayout();
@@ -148,6 +149,7 @@
             // 
             // materialWordTabPage
             // 
+            this.materialWordTabPage.Controls.Add(this.materialWordCopyButton);
             this.materialWordTabPage.Controls.Add(this.materialWordDeleteButton);
             this.materialWordTabPage.Controls.Add(this.materialWordAddTextBox);
             this.materialWordTabPage.Controls.Add(this.materialWordAddButton);
@@ -299,6 +301,19 @@
             this.categoryDeleteButton.UseVisualStyleBackColor = true;
             this.categoryDeleteButton.Click += new System.EventHandler(this.categoryDeleteButton_Click);
             // 
+            // materialWordCopyButton
+            // 
+            this.materialWordCopyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialWordCopyButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.materialWordCopyButton.Enabled = false;
+            this.materialWordCopyButton.Location = new System.Drawing.Point(344, 245);
+            this.materialWordCopyButton.Name = "materialWordCopyButton";
+            this.materialWordCopyButton.Size = new System.Drawing.Size(75, 23);
+            this.materialWordCopyButton.TabIndex = 9;
+            this.materialWordCopyButton.Text = "コピー";
+            this.materialWordCopyButton.UseVisualStyleBackColor = true;
+            this.materialWordCopyButton.Click += new System.EventHandler(this.materialWordCopyButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -346,6 +361,7 @@
         private System.Windows.Forms.Button favoriteWordDeleteButton;
         private System.Windows.Forms.ListBox favoriteWordListBox;
         private System.Windows.Forms.Button favoriteWordCopyButton;
+        private System.Windows.Forms.Button materialWordCopyButton;
     }
 }
 
